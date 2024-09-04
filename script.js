@@ -30,14 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 operand2="";}
     
             else if (button.classList.contains('equals')) {
+                if(!operator){
+                    result.value=operand1
+                }
+                else{
                 try {
                     result.value = evaluateExpression(operand1, operator, operand2);
                     operand1=result.value;
                     operand2='';
                     operator='';
+                    
                 } catch (error) {
                     result.value = 'Error';
-                }
+                }}
             }
                 // console.log(operand1);
                 // console.log(operator);
